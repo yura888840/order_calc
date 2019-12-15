@@ -14,49 +14,49 @@ class OrderProcessor
     /**
      * @var OrderValidator
      */
-	private $validator;
-	/**
-	 * @var OrderDeliveryDetails
-	 */
-	private $orderDeliveryDetails;
+    private $validator;
+    /**
+     * @var OrderDeliveryDetails
+     */
+    private $orderDeliveryDetails;
 
     /**
      * @var OrderPrinterInterface
      */
-	private $printer;
+    private $printer;
 
     /**
      * @var LoggerInterface
      */
-	private $logger;
+    private $logger;
 
     /**
      * @var DeliveryCostsCalculatorInterface
      */
-	private $deliveryCostsCalculator;
+    private $deliveryCostsCalculator;
 
-	public function __construct(
+    public function __construct(
         OrderDeliveryDetails $orderDeliveryDetails,
         OrderValidator $validator,
         OrderPrinterInterface $printer,
         LoggerInterface $logger,
         DeliveryCostsCalculatorInterface $deliveryCostsCalculator
     ) {
-		$this->orderDeliveryDetails = $orderDeliveryDetails;
-		$this->validator = $validator;
-		$this->printer = $printer;
-		$this->logger = $logger;
-		$this->deliveryCostsCalculator = $deliveryCostsCalculator;
-	}
+        $this->orderDeliveryDetails = $orderDeliveryDetails;
+        $this->validator = $validator;
+        $this->printer = $printer;
+        $this->logger = $logger;
+        $this->deliveryCostsCalculator = $deliveryCostsCalculator;
+    }
 
-	/**
-	 * @param $order Order
-	 */
-	public function process(Order $order)
-	{
-		$this->logger->info(sprintf("Processing started, OrderId: %d", $order->getOrderId()));
+    /**
+     * @param $order Order
+     */
+    public function process(Order $order)
+    {
+        $this->logger->info(sprintf("Processing started, OrderId: %d", $order->getOrderId()));
 
-		$this->validator->validate($order);
+        $this->validator->validate($order);
 
         if (false === $order->isValid()) {
             $this->logger->error("Order is invalid");
@@ -81,6 +81,6 @@ class OrderProcessor
                 ->getDeliveryDetails(count($order->getItems()))
         );
 
-		$this->printer->output($order);
-	}
+        $this->printer->output($order);
+    }
 }

@@ -4,35 +4,35 @@ namespace Orders\Entity;
 
 class Order
 {
-	/**
-	 * @var int
-	 */
-	private $orderId;
+    /**
+     * @var int
+     */
+    private $orderId;
 
-	/**
-	 * @var bool
-	 */
-	private $manual = false;
+    /**
+     * @var bool
+     */
+    private $manual = false;
 
-	/**
-	 * @var string
-	 */
-	private $name;
+    /**
+     * @var string
+     */
+    private $name;
 
-	/**
-	 * @var array
-	 */
-	private $items;
+    /**
+     * @var array
+     */
+    private $items;
 
-	/**
-	 * @var float
-	 */
-	private $totalAmount;
+    /**
+     * @var float
+     */
+    private $totalAmount;
 
-	/**
-	 * @var string
-	 */
-	private  $deliveryDetails;
+    /**
+     * @var string
+     */
+    private $deliveryDetails;
 
     private $valid = true;
 
@@ -53,12 +53,12 @@ class Order
     }
 
     /**
-	 * @param string $name
-	 */
-	public function setName(string $name)
-	{
-		$this->name = $name;
-	}
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
 
     /**
      * @return string
@@ -69,12 +69,12 @@ class Order
     }
 
     /**
-	 * @param array $items
-	 */
-	public function setItems(array $items)
-	{
-		$this->items = $items;
-	}
+     * @param array $items
+     */
+    public function setItems(array $items)
+    {
+        $this->items = $items;
+    }
 
     /**
      * @return array
@@ -85,12 +85,12 @@ class Order
     }
 
     /**
-	 * @param float $totalAmount
-	 */
-	public function setTotalAmount(float $totalAmount)
-	{
-		$this->totalAmount = $totalAmount;
-	}
+     * @param float $totalAmount
+     */
+    public function setTotalAmount(float $totalAmount)
+    {
+        $this->totalAmount = $totalAmount;
+    }
 
     /**
      * @return float
@@ -100,10 +100,10 @@ class Order
         return $this->totalAmount;
     }
 
-	public function setDeliveryDetails($deliveryDetails)
-	{
-		$this->deliveryDetails = $deliveryDetails;
-	}
+    public function setDeliveryDetails($deliveryDetails)
+    {
+        $this->deliveryDetails = $deliveryDetails;
+    }
 
     /**
      * @return string
