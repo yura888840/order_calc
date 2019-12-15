@@ -29,8 +29,8 @@ class OrderValidator
             return $order->setValid(false);
         }
 
-        foreach ($order->getItems() as $item_id) {
-            if (!is_int($item_id)) {
+        foreach ($order->getItems() as $itemId) {
+            if (!is_int($itemId)) {
                 return $order->setValid(false);
             }
         }
